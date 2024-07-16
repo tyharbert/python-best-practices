@@ -1,10 +1,12 @@
-from flask import Flask
+from flask import Flask, jsonify
+from processes_service import get_process_data
 
 app = Flask(__name__)
 
-@app.route('/data/<int:test>')
-def hello_world(test: int) -> str:
-    return 'Hello, World!'
+@app.route('/processes')
+def get_processes():
+    processes = get_process_data()
+    return jsonify({"success": True, "processes": processes}), 200
 
 @app.route('/exception')
 def test_exception():
