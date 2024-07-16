@@ -12,6 +12,8 @@ def get_processes():
 def test_exception():
     raise Exception("Test")
 
+# TODO: Move error handlers to separate file
+
 @app.errorhandler(404)
 def page_not_found(exception: Exception):
     return jsonify({"success": False, "error": "Not Found"}), 404

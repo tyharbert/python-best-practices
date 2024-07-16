@@ -5,6 +5,8 @@ from unittest.mock import patch, Mock
 import json
 from api import app
 
+# TODO: Tests aren't being discovered by VS Code
+
 @pytest.fixture
 def client() -> FlaskClient:
     app.testing = True
