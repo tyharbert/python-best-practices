@@ -12,12 +12,6 @@ def get_processes():
 def test_exception():
     raise Exception("Test")
 
-@app.errorhandler(Exception)
-def handle_exception(exception: Exception):
-    # You can log the exception here using your preferred logging method
-    print(f"'{type(exception).__name__}: {exception}'")
-    return jsonify({"success": False, "error": "Internal Server Error"}), 500
-
 if __name__ == '__main__':
     app.run(debug=True)
 # Don't use debug=True, because it disables the Visual Studio Code debugger
