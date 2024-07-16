@@ -8,4 +8,9 @@ Static type checkers are tools that analyze code to ensure type correctness befo
 
 Follow [this guide](https://mypy.readthedocs.io/en/stable/getting_started.html) to add Mypy to your project.
 
-Adding a .toml file to your project and setting `strict = true` file to your project will let you set the 
+Adding a .toml file to your project and setting `strict = true` will enforce strict typing. While strict may be too extreme, especially for existing code bases, you can mix typed and untyped code similar to Typescript.
+
+# Global Error Handling and Logging
+Every application should have some form of global error handling and logging.
+
+For a Flask API, such as this one you can use `@app.errorhandler(Exception)` to manage all unhandled exceptions. Other frameworks may have their own methods of catching unhandled exceptions, but for a basic Python applications a `try: ... except: ...` block at the highest level will do.
