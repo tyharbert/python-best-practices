@@ -12,6 +12,10 @@ def get_processes():
 def test_exception():
     raise Exception("Test")
 
+@app.errorhandler(404)
+def page_not_found(exception: Exception):
+    return jsonify({"success": False, "error": "Not Found"}), 404
+
 @app.errorhandler(Exception)
 def handle_exception(exception: Exception):
     # You can log the exception here using your preferred logging method
