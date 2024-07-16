@@ -14,3 +14,6 @@ Adding a .toml file to your project and setting `strict = true` will enforce str
 Every application should have some form of global error handling and logging.
 
 For a Flask API, such as this one you can use `@app.errorhandler(Exception)` to manage all unhandled exceptions. Other frameworks may have their own methods of catching unhandled exceptions, but for a basic Python applications a `try: ... except: ...` block at the highest level will do.
+
+# Adding Unit Tests and Mocks
+In many applications unit tests can be help to quickly verify that code functionality has not changed unexpectedly. This can be helpful in production applications, even if it is only added as needed rather than aiming for exhaustive code coverage. I recommend using Pytest. This adds more than unittest, like better test feedback and the ability to run a single test with multiple inputs, and it is backwards compatible with unittest.
